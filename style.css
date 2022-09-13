@@ -1,0 +1,182 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+:root{
+  font-size: 62.5%;
+}
+
+html{
+  font-size: 1.6rem;
+}
+
+body{
+  --bg-color: #FFFFFF;
+  --bg-secondary-color: #E1E1E6;
+  --bg-hover-active:#02799D;
+  --button-color: #323238;
+  --timer-color: #000000;
+  --button-secondary-color: #ffffff;
+  --button-controls-color: #02799D;
+  --button-volume-color: #323238;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  min-height: 100vh;
+
+  background-color: var(--bg-color);
+}
+
+/*========= dark mode ==========*/
+body.dark-mode{
+  --bg-color: #000000;
+  --bg-secondary-color: #29292E;
+  --bg-hover-active:#0A3442;
+  --timer-color: #ffffff;
+  --button-color: #C4C4CC;
+  --button-secondary-color: #ffffff;
+  --button-controls-color: #ffffff;
+  --button-volume-color: #ffffff;
+
+  background-color: var(--bg-color);
+}
+
+main{
+  min-height: 95vh;
+  display: flex;
+  position: relative;
+}
+
+button{
+  border: none;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.dayLight, .night{
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+
+  cursor: pointer;
+}
+
+.dayLight svg path, .night svg path{
+  fill: var(--timer-color);
+}
+
+.hide{
+  display: none;
+}
+
+main .panel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 82.1rem;
+  margin: auto;
+}
+
+#timer{
+  font-size: 12.617rem;
+  line-height: 14.785rem;
+  margin-bottom: 1.7rem;
+  display: flex;
+  color: var(--timer-color);
+}
+
+#controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+#controls button svg path{
+  fill: var(--button-color);
+}
+
+#controls button:hover svg path{
+  fill: var(--button-controls-color);
+}
+
+/*======== Botão para escolher fundo musical =====*/
+.cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.2rem;
+}
+
+.cards button{
+  position: relative;
+}
+
+.cards button .inputVol{
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+}
+
+.cards button .inputVol input{
+  max-width: 9rem;
+}
+
+.cards button .inputVol input[type="range"]{
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  height: 4px;
+  background: var(--button-volume-color);
+}
+
+.cards button .inputVol input[type="range"]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 25px;
+  background: var(--button-volume-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.cards button.check .inputVol input[type="range"]::-webkit-slider-thumb,
+.cards button.check .inputVol input[type="range"]{
+  background: var(--button-secondary-color);
+}
+
+.cards button:hover .inputVol input[type="range"]::-webkit-slider-thumb,
+.cards button:hover .inputVol input[type="range"]{
+  background: var(--button-secondary-color);
+}
+
+.cards button svg path:first-child{
+  fill: var(--bg-secondary-color);
+}
+
+.cards button:hover svg path:first-child,
+.cards button.check svg path:first-child{
+  fill: var(--bg-hover-active);
+}
+
+.cards button svg path:last-child{
+  fill: var(--button-color);
+}
+
+.cards button:hover svg path:last-child,
+.cards button.check svg path:last-child{
+  fill: var(--button-secondary-color);
+}
+
+@media (max-width: 1024px){
+  main .dayLight, main .night{
+    top: 2rem;
+    right: 2rem;
+  }
+
+  body main .panel {
+    flex-direction: column;
+    gap: 10rem;
+  }
+}
